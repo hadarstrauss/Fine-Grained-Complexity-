@@ -1,0 +1,23 @@
+{
+  "name": "latex-dollar-pairs",
+  "displayName": "LaTeX $ / $$ auto-pairing",
+  "description": "Typing $ inserts $|$; typing $ again inside an empty pair gives $$|$$; typing $ before a closing $ steps over it.",
+  "publisher": "local",
+  "version": "0.0.1",
+  "engines": { "vscode": "^1.80.0" },
+  "main": "./extension.js",
+  "activationEvents": ["onLanguage:latex"],
+  "contributes": {
+    "commands": [
+      { "command": "latexDollar.type", "title": "LaTeX: Smart $" }
+    ],
+    "keybindings": [
+      {
+        "key": "shift+4",
+        "command": "latexDollar.type",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex' && !editorHasMultipleSelections"
+      }
+    ]
+  }
+}
+

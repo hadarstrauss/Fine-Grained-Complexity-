@@ -1,0 +1,91 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{bbold}
+\usepackage[toc,page]{appendix}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+
+\usepackage[
+  backend=biber,
+  style=alphabetic,
+  maxbibnames=99,
+  maxalphanames=99
+]{biblatex}
+\renewcommand*{\multicitedelim}{,~}
+\addbibresource{references.bib}
+
+\newcommand{\todo}[1]{{\color{red} [TODO: #1]}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{algorithm}[theorem]{Algorithm}
+
+\newtheorem{nestedclaim}{Claim}[subsection]
+\newtheorem{nestedlemma}[nestedclaim]{Lemma}
+\newtheorem{nestedfact}[nestedclaim]{Fact}
+
+\newtheorem{lemnestedclaim}{Claim}[theorem]
+\newtheorem{lemnestedfact}[lemnestedclaim]{Fact}
+
+\renewcommand\proofname{\textup{\textbf{Proof:}}}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\newenvironment{subproof}[1][\textup{\large\textsf{Proof:}}]{\begin{proof}[#1]\renewcommand*{\qedsymbol}{\(\square\)}}{\end{proof}}
+
+\newtheoremstyle{sltheorem}
+{}                % Space above
+{}                % Space below
+{\it}        % Theorem body font % (default is "\upshape")
+{}                % Indent amount
+{\sffamily\large}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{ }               % Space after theorem head
+{}                % Theorem head spec
+\theoremstyle{sltheorem}
+\newtheorem{subclaim}[theorem]{Claim}
+\newtheorem{sublemma}[theorem]{Lemma}
+\newtheorem{subfact}[theorem]{Fact}
+\newtheorem{nestedsubclaim}{Claim}[theorem]
+
+\def\ov{\overline}
+\newcommand{\ovbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\def\th{^{\text{th}}}
+\def\eqdef{\stackrel{\text{def}}{=}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand*\xor{\oplus}
+\newcommand*\Xor{\bigoplus}
+
+\begin{document}
+
+\title{ Fine-Grained Complexity Ex1 }
+\author{Hadar Strauss}
+\maketitle
+
+% \newpage
+
+% \tableofcontents
+% \newpage
+
+\input{Ex1}
+
+\printbibliography[heading=bibintoc]{}
+
+\end{document}
+

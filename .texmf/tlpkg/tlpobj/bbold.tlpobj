@@ -1,0 +1,50 @@
+name bbold
+category Package
+revision 77682
+shortdesc Sans serif blackboard bold
+longdesc A geometric sans serif blackboard bold font, for use in
+longdesc mathematics; Metafont sources are provided, as well as macros
+longdesc for use with LaTeX. The Sauter font package has Metafont
+longdesc parameter source files for building the fonts at more sizes
+longdesc than you could reasonably imagine. See the blackboard sampler
+longdesc for a feel for the font's appearance.
+containersize 15760
+containerchecksum 1b6968879c83af4ebc6a08c805663ab76366fb033d28c42b3ffccd9295ed4aa42c4c7371e47b7ec80add63042fb64e07121441e84bce4dd3d1b6429d8203fef9
+doccontainersize 153068
+doccontainerchecksum aa8485807de9550a80b97953110ccf9a766e32a452bf7a88ed3d5c4373888bc6b182c41f67ffa7528f596e07f44f5dba3969adc6755171ed49e002360919640d
+srccontainersize 4596
+srccontainerchecksum c2a28047f76005bfd318eb01d9523b7203af00f05a477b43a150b91e015aa1ac01e13c3a7b6ed116e89e066b0ac2b0e4ccea8dfbd48218174c289c63908d5582
+runfiles size=45
+ fonts/source/public/bbold/bbbase.mf
+ fonts/source/public/bbold/bbgreekl.mf
+ fonts/source/public/bbold/bbgreeku.mf
+ fonts/source/public/bbold/bbligs.mf
+ fonts/source/public/bbold/bblower.mf
+ fonts/source/public/bbold/bbnum.mf
+ fonts/source/public/bbold/bbold.mf
+ fonts/source/public/bbold/bbold10.mf
+ fonts/source/public/bbold/bbold12.mf
+ fonts/source/public/bbold/bbold17.mf
+ fonts/source/public/bbold/bbold5.mf
+ fonts/source/public/bbold/bbold6.mf
+ fonts/source/public/bbold/bbold7.mf
+ fonts/source/public/bbold/bbold8.mf
+ fonts/source/public/bbold/bbold9.mf
+ fonts/source/public/bbold/bbparams.mf
+ fonts/source/public/bbold/bbpunc.mf
+ fonts/source/public/bbold/bbupper.mf
+ fonts/tfm/public/bbold/bbold10.tfm
+ fonts/tfm/public/bbold/bbold12.tfm
+ fonts/tfm/public/bbold/bbold17.tfm
+ fonts/tfm/public/bbold/bbold5.tfm
+ fonts/tfm/public/bbold/bbold6.tfm
+ fonts/tfm/public/bbold/bbold7.tfm
+ fonts/tfm/public/bbold/bbold8.tfm
+ fonts/tfm/public/bbold/bbold9.tfm
+ tex/latex/bbold/Ubbold.fd
+ tex/latex/bbold/bbold.sty
+catalogue-also bbm doublestroke mbboard
+catalogue-ctan /fonts/bbold
+catalogue-license bsd
+catalogue-topics font font-maths font-bbd font-mf tagged-pdf-partially
+catalogue-version 1.01

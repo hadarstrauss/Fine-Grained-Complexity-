@@ -1,0 +1,420 @@
+{
+  "explorer.incrementalNaming": "smart",
+  "files.exclude": {
+    "**/.latexmkrc": true,
+    "**/.texmf": true,
+    "**/.vscode": true
+  },
+  "workbench.colorTheme": "Light+",
+  "workbench.preferredLightColorTheme": "Light+",
+  "workbench.preferredDarkColorTheme": "Dark+",
+  "window.autoDetectColorScheme": false,
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "on",
+  "editor.wrappingStrategy": "advanced",
+  "editor.wrappingIndent": "same",
+  "editor.semanticHighlighting.enabled": false,
+  "editor.selectionHighlight": false,
+  "editor.occurrencesHighlight": "off",
+  "editor.quickSuggestions": {
+    "comments": "off",
+    "strings": "off",
+    "other": "off"
+  },
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.inlineSuggest.enabled": false,
+  "editor.wordBasedSuggestions": "off",
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.tabCompletion": "off",
+  "ltex.enabled": [
+    "latex",
+    "bibtex",
+    "markdown"
+  ],
+  "ltex.language": "en-US",
+  "ltex.checkFrequency": "edit",
+  "ltex.diagnosticSeverity": "warning",
+  "ltex.statusBarItem": true,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+  "latex-workshop.view.pdf.invertMode.enabled": "never",
+  "latex-workshop.view.pdf.color.light.backgroundColor": "#1b2635",
+  "latex-workshop.view.pdf.color.light.pageBorderColor": "#2f3d52",
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.synctex.path": "/Library/TeX/texbin/synctex",
+  "latex-workshop.synctex.indicator": "rectangle",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.recipe.default": "pdflatex (fast, Ctrl+S)",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex",
+      "command": "/Library/TeX/texbin/pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "A_main.tex"
+      ]
+    },
+    {
+      "name": "latexmk",
+      "command": "/Library/TeX/texbin/latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "A_main.tex"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "pdflatex (fast, Ctrl+S)",
+      "tools": [
+        "pdflatex"
+      ]
+    },
+    {
+      "name": "latexmk (full, updates bibliography)",
+      "tools": [
+        "latexmk"
+      ]
+    }
+  ],
+  "latex-workshop.message.error.show": true,
+  "latex-workshop.message.warning.show": true,
+  "editor.glyphMargin": false,
+  "editor.folding": true,
+  "editor.lineDecorationsWidth": 0,
+  "editor.renderValidationDecorations": "on",
+  "problems.decorations.enabled": true,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#202020",
+    "activityBar.border": "#343434",
+    "activityBar.foreground": "#f5f5f5",
+    "activityBar.inactiveForeground": "#9a9a9a",
+    "activityBar.activeBackground": "#2a2a2a",
+    "activityBar.activeBorder": "#ffffff",
+    "activityBar.activeForeground": "#ffffff",
+    "activityBarBadge.background": "#007acc",
+    "activityBarBadge.foreground": "#ffffff",
+    "editor.background": "#ffffff",
+    "editor.foreground": "#1f1f1f",
+    "editor.findMatchBackground": "#ffff00",
+    "editor.findMatchHighlightBackground": "#fff59d",
+    "editor.inactiveSelectionBackground": "#d7e9ff",
+    "editor.lineHighlightBackground": "#ffffff",
+    "editor.lineHighlightBorder": "#ffffff",
+    "editor.selectionBackground": "#b5d5ff",
+    "editor.selectionHighlightBackground": "#d7e9ff",
+    "editor.wordHighlightBackground": "#d7e9ff",
+    "editorCursor.foreground": "#000000",
+    "editorGutter.background": "#f0f0f0",
+    "editorIndentGuide.activeBackground1": "#bfbfbf",
+    "editorIndentGuide.background1": "#e6e6e6",
+    "editorLineNumber.activeForeground": "#000000",
+    "editorLineNumber.foreground": "#333333",
+    "editorWhitespace.foreground": "#bfbfbf",
+    "panel.background": "#f8f8f8",
+    "panel.border": "#d6d6d6",
+    "sideBar.background": "#f7f7f7",
+    "sideBar.border": "#d6d6d6",
+    "sideBar.foreground": "#333333",
+    "statusBar.background": "#f5f5f5",
+    "statusBar.foreground": "#333333",
+    "statusBar.noFolderBackground": "#f5f5f5",
+    "tab.activeBackground": "#ffffff",
+    "tab.activeForeground": "#000000",
+    "tab.border": "#d6d6d6",
+    "tab.inactiveBackground": "#eeeeee",
+    "tab.inactiveForeground": "#555555",
+    "titleBar.activeBackground": "#202020",
+    "titleBar.activeForeground": "#f5f5f5",
+    "titleBar.inactiveBackground": "#202020",
+    "titleBar.inactiveForeground": "#9a9a9a",
+    "commandCenter.background": "#2a2a2a",
+    "commandCenter.foreground": "#f5f5f5",
+    "commandCenter.border": "#404040"
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "source",
+          "text.tex",
+          "text.tex.latex"
+        ],
+        "settings": {
+          "foreground": "#1f1f1f"
+        }
+      },
+      {
+        "scope": [
+          "comment",
+          "comment.line.percentage.tex",
+          "comment.line.percentage.latex",
+          "comment.line.percentage.directive.tex"
+        ],
+        "settings": {
+          "foreground": "#4f8b6b",
+          "fontStyle": ""
+        }
+      },
+      {
+        "scope": [
+          "meta.math",
+          "meta.math.block.tex",
+          "meta.math.block.latex"
+        ],
+        "settings": {
+          "foreground": "#007000"
+        }
+      },
+      {
+        "scope": [
+          "keyword.control.tex",
+          "keyword.control.latex",
+          "keyword.control.preamble.latex",
+          "keyword.control.include.latex",
+          "keyword.control.label.latex",
+          "keyword.control.ref.latex",
+          "keyword.control.cite.latex",
+          "keyword.control.newline.tex",
+          "support.function.general.tex",
+          "support.function.be.latex",
+          "support.function.section.latex",
+          "support.function.textbf.latex",
+          "support.function.textit.latex",
+          "support.function.texttt.latex",
+          "support.function.emph.latex",
+          "support.function.url.latex",
+          "support.class.general.latex3.tex"
+        ],
+        "settings": {
+          "foreground": "#0000ff"
+        }
+      },
+      {
+        "scope": [
+          "meta.math keyword.control.tex",
+          "meta.math keyword.control.latex",
+          "meta.math keyword.control.equation.align.latex",
+          "meta.math keyword.control.equation.newline.latex",
+          "support.class.math.block.environment.latex keyword.control.equation.align.latex",
+          "support.class.math.block.environment.latex keyword.control.equation.newline.latex",
+          "meta.math support.function.general.tex",
+          "meta.math support.function.textit.latex",
+          "meta.math support.function.textbf.latex",
+          "meta.math support.function.emph.latex",
+          "support.class.math.block.environment.latex support.function.general.tex",
+          "support.class.math.block.environment.latex constant.other.math.tex",
+          "support.class.math.block.environment.latex constant.other.general.math.tex",
+          "support.class.math.block.environment.latex constant.character.math.tex",
+          "support.class.math.block.environment.latex punctuation.definition.string.begin.tex",
+          "support.class.math.block.environment.latex punctuation.definition.string.end.tex",
+          "support.class.math.block.environment.latex punctuation.math",
+          "support.class.math.block.environment.latex punctuation.math.operator.tex",
+          "meta.math constant.other.math.tex",
+          "meta.math constant.other.general.math.tex",
+          "meta.math constant.character.math.tex",
+          "meta.math punctuation.definition.string.begin.tex",
+          "meta.math punctuation.definition.string.end.tex",
+          "meta.math punctuation.math",
+          "meta.math punctuation.math.operator.tex"
+        ],
+        "settings": {
+          "foreground": "#8a3fd1"
+        }
+      },
+      {
+        "scope": [
+          "constant.character.math.tex",
+          "constant.other.math.tex",
+          "constant.other.general.math.tex",
+          "constant.character.escape.tex",
+          "punctuation.definition.string.begin.tex",
+          "punctuation.definition.string.end.tex",
+          "punctuation.math",
+          "punctuation.math.operator.tex"
+        ],
+        "settings": {
+          "foreground": "#8a3fd1"
+        }
+      },
+      {
+        "scope": [
+          "meta.math variable",
+          "meta.math variable.other",
+          "meta.math variable.parameter",
+          "meta.math constant.numeric.math.tex",
+          "support.class.math.block.environment.latex variable",
+          "support.class.math.block.environment.latex variable.other",
+          "support.class.math.block.environment.latex constant.numeric.math.tex",
+          "meta.math meta.group.braces.tex",
+          "meta.math punctuation.group.begin.tex",
+          "meta.math punctuation.group.end.tex"
+        ],
+        "settings": {
+          "foreground": "#007000"
+        }
+      },
+      {
+        "scope": [
+          "support.class.latex",
+          "support.class.math.block.tex",
+          "support.class.math.block.environment.latex",
+          "variable.parameter.function.latex",
+          "constant.other.reference.label.latex",
+          "constant.other.reference.citation.latex",
+          "variable.parameter.definition.label.latex",
+          "punctuation.definition.arguments.begin.latex",
+          "punctuation.definition.arguments.end.latex",
+          "punctuation.definition.arguments.optional.begin.latex",
+          "punctuation.definition.arguments.optional.end.latex"
+        ],
+        "settings": {
+          "foreground": "#2b8a9b"
+        }
+      },
+      {
+        "scope": [
+          "meta.environment.latex support.class.latex",
+          "support.class.latex",
+          "support.class.math.block.tex",
+          "support.class.math.block.environment.latex",
+          "variable.parameter.function.latex",
+          "constant.other.reference.label.latex",
+          "constant.other.reference.citation.latex",
+          "variable.parameter.definition.label.latex"
+        ],
+        "settings": {
+          "foreground": "#2b8a9b"
+        }
+      },
+      {
+        "scope": [
+          "meta.math variable",
+          "meta.math variable.other",
+          "meta.math variable.parameter",
+          "meta.math constant.numeric.math.tex",
+          "meta.math meta.group.braces.tex",
+          "meta.math punctuation.group.begin.tex",
+          "meta.math punctuation.group.end.tex",
+          "support.class.math.block.environment.latex variable",
+          "support.class.math.block.environment.latex variable.other",
+          "support.class.math.block.environment.latex variable.parameter",
+          "support.class.math.block.environment.latex constant.numeric.math.tex",
+          "support.class.math.block.environment.latex meta.group.braces.tex",
+          "support.class.math.block.environment.latex punctuation.group.begin.tex",
+          "support.class.math.block.environment.latex punctuation.group.end.tex"
+        ],
+        "settings": {
+          "foreground": "#007000"
+        }
+      },
+      {
+        "scope": [
+          "meta.math",
+          "meta.math.block.tex",
+          "meta.math.block.latex",
+          "support.class.math.block.tex",
+          "support.class.math.block.environment.latex",
+          "punctuation.definition.string.begin.tex",
+          "punctuation.definition.string.end.tex",
+          "punctuation.definition.string.begin.latex",
+          "punctuation.definition.string.end.latex"
+        ],
+        "settings": {
+          "foreground": "#007000"
+        }
+      },
+      {
+        "scope": [
+          "keyword.operator",
+          "punctuation.definition.function.latex",
+          "punctuation.definition.keyword.latex",
+          "punctuation.separator",
+          "punctuation.terminator"
+        ],
+        "settings": {
+          "foreground": "#666666"
+        }
+      },
+      {
+        "scope": [
+          "invalid",
+          "invalid.illegal"
+        ],
+        "settings": {
+          "foreground": "#ff0000"
+        }
+      },
+      {
+        "scope": [
+          "punctuation.definition.string.begin.tex",
+          "punctuation.definition.string.end.tex",
+          "punctuation.definition.string.begin.latex",
+          "punctuation.definition.string.end.latex",
+          "meta.math punctuation.definition.string.begin.tex",
+          "meta.math punctuation.definition.string.end.tex",
+          "meta.math punctuation.definition.string.begin.latex",
+          "meta.math punctuation.definition.string.end.latex",
+          "support.class.math.block.tex punctuation.definition.string.begin.tex",
+          "support.class.math.block.tex punctuation.definition.string.end.tex",
+          "support.class.math.block.environment.latex punctuation.definition.string.begin.tex",
+          "support.class.math.block.environment.latex punctuation.definition.string.end.tex",
+          "support.class.math.block.environment.latex punctuation.definition.string.begin.latex",
+          "support.class.math.block.environment.latex punctuation.definition.string.end.latex"
+        ],
+        "settings": {
+          "foreground": "#007000",
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "[latex]": {
+    "editor.fontFamily": "Menlo, Monaco, monospace",
+    "editor.fontWeight": "350",
+    "editor.lineHeight": 20,
+    "editor.glyphMargin": false,
+    "editor.folding": true,
+    "editor.lineDecorationsWidth": 0,
+    "editor.minimap.enabled": false,
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.quickSuggestionsDelay": 10,
+    "editor.snippetSuggestions": "top",
+    "editor.suggestSelection": "first",
+    "editor.inlineSuggest.enabled": false,
+    "editor.wordBasedSuggestions": "off",
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.tabCompletion": "on",
+    "editor.wordWrap": "on",
+    "editor.wrappingStrategy": "advanced",
+    "editor.wrappingIndent": "same"
+  },
+  "latex-workshop.intellisense.triggers.latex": [
+    "\\",
+    "{",
+    ",",
+    "}"
+  ],
+  "latex-workshop.intellisense.label.command": [
+    "label",
+    "linelabel"
+  ],
+  "latex-workshop.latex.search.rootFiles.include": [
+    "A_main.tex"
+  ],
+  "latex-workshop.latex.search.rootFiles.exclude": [
+    "checkpoints/**/*.tex"
+  ],
+  "latex-workshop.latex.rootFile.useSubFile": false,
+  "latex-workshop.latex.rootFile.doNotPrompt": true
+}

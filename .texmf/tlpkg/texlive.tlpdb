@@ -1,0 +1,339 @@
+name 00texlive.installation
+category TLCore
+depend opt_location:https://mirror.ctan.org/systems/texlive/tlnet
+depend setting_available_architectures:
+depend setting_usertree:1
+
+name appendix
+category Package
+revision 79461
+shortdesc Extra control of appendices
+longdesc The appendix package provides various ways of formatting the
+longdesc titles of appendices. Also (sub)appendices environments are
+longdesc provided that can be used, for example, for per chapter/section
+longdesc appendices. The word 'Appendix' or similar can be prepended to
+longdesc the appendix number for article class documents. The word
+longdesc 'Appendices' or similar can be added to the table of contents
+longdesc before the appendices are listed. The word 'Appendices' or
+longdesc similar can be typeset as a \part-like heading (page) in the
+longdesc body. An appendices environment is provided which can be used
+longdesc instead of the \appendix command.
+containersize 2908
+containerchecksum 65e13258e2c37749dc24a8c81c9bef2e6498be67b4595b0f8af897fa6b0308dfb46d8bca2209fecfa232057e5147cfe45617ac9c5803d17d6565405de4287ac5
+doccontainersize 316984
+doccontainerchecksum 32accc6919ad3c56157307efa5fb16b4d81d318796b69cda7eee2bb13579df1308630f973065929404f9ae235b515b216b73b4e261517874c0710bf176ec2810
+srccontainersize 10592
+srccontainerchecksum aa125462d3a01fe3998f427d25c69a94033890f33d8c196750a5483e3335563a33512d593856c25055af8c28fb3f11a5faec23e48848df35a0f391f5c3d3a730
+runfiles size=3
+ tex/latex/appendix/appendix.sty
+catalogue-contact-repository https://github.com/LaTeX-Package-Repositories/herries-press
+catalogue-ctan /macros/latex/contrib/appendix
+catalogue-license lppl1.3c
+catalogue-topics appendix headings tagged-pdf-partially
+catalogue-version 1.2c
+
+name bbold
+category Package
+revision 77682
+shortdesc Sans serif blackboard bold
+longdesc A geometric sans serif blackboard bold font, for use in
+longdesc mathematics; Metafont sources are provided, as well as macros
+longdesc for use with LaTeX. The Sauter font package has Metafont
+longdesc parameter source files for building the fonts at more sizes
+longdesc than you could reasonably imagine. See the blackboard sampler
+longdesc for a feel for the font's appearance.
+containersize 15760
+containerchecksum 1b6968879c83af4ebc6a08c805663ab76366fb033d28c42b3ffccd9295ed4aa42c4c7371e47b7ec80add63042fb64e07121441e84bce4dd3d1b6429d8203fef9
+doccontainersize 153068
+doccontainerchecksum aa8485807de9550a80b97953110ccf9a766e32a452bf7a88ed3d5c4373888bc6b182c41f67ffa7528f596e07f44f5dba3969adc6755171ed49e002360919640d
+srccontainersize 4596
+srccontainerchecksum c2a28047f76005bfd318eb01d9523b7203af00f05a477b43a150b91e015aa1ac01e13c3a7b6ed116e89e066b0ac2b0e4ccea8dfbd48218174c289c63908d5582
+runfiles size=45
+ fonts/source/public/bbold/bbbase.mf
+ fonts/source/public/bbold/bbgreekl.mf
+ fonts/source/public/bbold/bbgreeku.mf
+ fonts/source/public/bbold/bbligs.mf
+ fonts/source/public/bbold/bblower.mf
+ fonts/source/public/bbold/bbnum.mf
+ fonts/source/public/bbold/bbold.mf
+ fonts/source/public/bbold/bbold10.mf
+ fonts/source/public/bbold/bbold12.mf
+ fonts/source/public/bbold/bbold17.mf
+ fonts/source/public/bbold/bbold5.mf
+ fonts/source/public/bbold/bbold6.mf
+ fonts/source/public/bbold/bbold7.mf
+ fonts/source/public/bbold/bbold8.mf
+ fonts/source/public/bbold/bbold9.mf
+ fonts/source/public/bbold/bbparams.mf
+ fonts/source/public/bbold/bbpunc.mf
+ fonts/source/public/bbold/bbupper.mf
+ fonts/tfm/public/bbold/bbold10.tfm
+ fonts/tfm/public/bbold/bbold12.tfm
+ fonts/tfm/public/bbold/bbold17.tfm
+ fonts/tfm/public/bbold/bbold5.tfm
+ fonts/tfm/public/bbold/bbold6.tfm
+ fonts/tfm/public/bbold/bbold7.tfm
+ fonts/tfm/public/bbold/bbold8.tfm
+ fonts/tfm/public/bbold/bbold9.tfm
+ tex/latex/bbold/Ubbold.fd
+ tex/latex/bbold/bbold.sty
+catalogue-also bbm doublestroke mbboard
+catalogue-ctan /fonts/bbold
+catalogue-license bsd
+catalogue-topics font font-maths font-bbd font-mf tagged-pdf-partially
+catalogue-version 1.01
+
+name bbold-type1
+category Package
+revision 33143
+shortdesc An Adobe Type 1 format version of the bbold font
+longdesc The files offer an Adobe Type 1 format version of the 5pt, 7pt
+longdesc and 10pt versions of the bbold fonts. The distribution also
+longdesc includes a map file, for use when incorporating the fonts into
+longdesc TeX documents; the macros provided with the original Metafont
+longdesc version of the font serve for the scaleable version, too. The
+longdesc fonts were produced to be part of the TeX distribution from
+longdesc Y&Y; they were generously donated to the TeX Users Group when
+longdesc Y&Y closed its doors as a business.
+execute addMixedMap bbold.map
+containersize 70004
+containerchecksum 86631e16388a447db7c521087eccbb666612933f6fee8eace091e00b20b5070d38ebc2d4d0a754536eacef9e9e6470f237d184e00cc4419bff85087f54b81566
+doccontainersize 39920
+doccontainerchecksum ad841ac652a7985ab907572f66462091b1c40f7cdab2b00086209a2d96056e0a9e32842dfbc22c829b27799882252da95e3d10d4a9dd174f487327d5f3ac3899
+runfiles size=28
+ fonts/afm/public/bbold-type1/bbold10.afm
+ fonts/afm/public/bbold-type1/bbold5.afm
+ fonts/afm/public/bbold-type1/bbold7.afm
+ fonts/map/dvips/bbold-type1/bbold.map
+ fonts/type1/public/bbold-type1/bbold10.pfb
+ fonts/type1/public/bbold-type1/bbold5.pfb
+ fonts/type1/public/bbold-type1/bbold7.pfb
+catalogue-ctan /fonts/bbold-type1
+catalogue-license other-free
+catalogue-topics font font-maths font-bbd font-type1
+
+name biblatex
+category Package
+revision 80368
+shortdesc Sophisticated Bibliographies in LaTeX
+longdesc BibLaTeX is a complete reimplementation of the bibliographic
+longdesc facilities provided by LaTeX. Formatting of the bibliography is
+longdesc entirely controlled by LaTeX macros, and a working knowledge of
+longdesc LaTeX should be sufficient to design new bibliography and
+longdesc citation styles. BibLaTeX uses its own data backend program
+longdesc called biber to read and process the bibliographic data. With
+longdesc biber, BibLaTeX has many features rivalling or surpassing other
+longdesc bibliography systems. To mention a few: Full Unicode support
+longdesc Highly customisable sorting using the Unicode Collation
+longdesc Algorithm + CLDR tailoring Highly customisable bibliography
+longdesc labels Complex macro-based on-the-fly data modification without
+longdesc changing your data sources A tool mode for transforming
+longdesc bibliographic data sources Multiple bibliographies and lists of
+longdesc bibliographic information in the same document with different
+longdesc sorting Highly customisable data source inheritance rules
+longdesc Polyglossia and babel support for automatic language switching
+longdesc for bibliographic entries and citations Automatic bibliography
+longdesc data recoding (UTF-8 -> latin1, LaTeX macros -> UTF-8 etc)
+longdesc Remote data sources Highly sophisticated automatic name and
+longdesc name list disambiguation system Highly customisable data model
+longdesc so users can define their own bibliographic data types
+longdesc Validation of bibliographic data against a data model
+longdesc Subdivided and/or filtered bibliographies, bibliographies per
+longdesc chapter, section etc. Apart from the features unique to
+longdesc BibLaTeX, the package also incorporates core features of the
+longdesc following packages: babelbib, bibtopic, bibunits, chapterbib,
+longdesc cite, inlinebib, mcite and mciteplus, mlbib, multibib,
+longdesc splitbib. The package strictly requires e-TeX BibTeX, bibtex8,
+longdesc or Biber etoolbox 2.1 or later logreq 1.0 or later keyval
+longdesc ifthen url Biber, babel / polyglossia, and csquotes 4.4 or
+longdesc later are strongly recommended.
+depend etoolbox
+depend kvoptions
+depend logreq
+depend pdftexcmds
+depend url
+containersize 260324
+containerchecksum 44c405851a52ad122b05e01c8999bdab5389c6fc77493247c2b202d64ad4a89e70bb140012d3cfa2fe95f739c587d07eaf2f7878113b4d2f07adce8c0f941ffb
+doccontainersize 7357036
+doccontainerchecksum e36be34a00596de829556473da83e642422ad50c9e7d7582889d258a9306008152953956eead8a8b994412a96e6f47621ee158ab26c197db751e7e73ffe6d805
+runfiles size=636
+ bibtex/bib/biblatex/biblatex/biblatex-examples.bib
+ bibtex/bst/biblatex/biblatex.bst
+ tex/latex/biblatex/bbx/alphabetic-verb.bbx
+ tex/latex/biblatex/bbx/alphabetic.bbx
+ tex/latex/biblatex/bbx/authortitle-comp.bbx
+ tex/latex/biblatex/bbx/authortitle-ibid.bbx
+ tex/latex/biblatex/bbx/authortitle-icomp.bbx
+ tex/latex/biblatex/bbx/authortitle-tcomp.bbx
+ tex/latex/biblatex/bbx/authortitle-terse.bbx
+ tex/latex/biblatex/bbx/authortitle-ticomp.bbx
+ tex/latex/biblatex/bbx/authortitle.bbx
+ tex/latex/biblatex/bbx/authoryear-comp.bbx
+ tex/latex/biblatex/bbx/authoryear-ibid.bbx
+ tex/latex/biblatex/bbx/authoryear-icomp.bbx
+ tex/latex/biblatex/bbx/authoryear.bbx
+ tex/latex/biblatex/bbx/debug.bbx
+ tex/latex/biblatex/bbx/draft.bbx
+ tex/latex/biblatex/bbx/numeric-comp.bbx
+ tex/latex/biblatex/bbx/numeric-verb.bbx
+ tex/latex/biblatex/bbx/numeric.bbx
+ tex/latex/biblatex/bbx/reading.bbx
+ tex/latex/biblatex/bbx/standard.bbx
+ tex/latex/biblatex/bbx/verbose-ibid.bbx
+ tex/latex/biblatex/bbx/verbose-inote.bbx
+ tex/latex/biblatex/bbx/verbose-note.bbx
+ tex/latex/biblatex/bbx/verbose-trad1.bbx
+ tex/latex/biblatex/bbx/verbose-trad2.bbx
+ tex/latex/biblatex/bbx/verbose-trad3.bbx
+ tex/latex/biblatex/bbx/verbose.bbx
+ tex/latex/biblatex/biblatex.cfg
+ tex/latex/biblatex/biblatex.def
+ tex/latex/biblatex/biblatex.sty
+ tex/latex/biblatex/blx-bibtex.def
+ tex/latex/biblatex/blx-case-expl3.sty
+ tex/latex/biblatex/blx-case-latex2e.sty
+ tex/latex/biblatex/blx-compat.def
+ tex/latex/biblatex/blx-dm.def
+ tex/latex/biblatex/blx-mcite.def
+ tex/latex/biblatex/blx-natbib.def
+ tex/latex/biblatex/blx-unicode.def
+ tex/latex/biblatex/cbx/alphabetic-verb.cbx
+ tex/latex/biblatex/cbx/alphabetic.cbx
+ tex/latex/biblatex/cbx/authortitle-comp.cbx
+ tex/latex/biblatex/cbx/authortitle-ibid.cbx
+ tex/latex/biblatex/cbx/authortitle-icomp.cbx
+ tex/latex/biblatex/cbx/authortitle-tcomp.cbx
+ tex/latex/biblatex/cbx/authortitle-terse.cbx
+ tex/latex/biblatex/cbx/authortitle-ticomp.cbx
+ tex/latex/biblatex/cbx/authortitle.cbx
+ tex/latex/biblatex/cbx/authoryear-comp.cbx
+ tex/latex/biblatex/cbx/authoryear-ibid.cbx
+ tex/latex/biblatex/cbx/authoryear-icomp.cbx
+ tex/latex/biblatex/cbx/authoryear.cbx
+ tex/latex/biblatex/cbx/debug.cbx
+ tex/latex/biblatex/cbx/draft.cbx
+ tex/latex/biblatex/cbx/numeric-comp.cbx
+ tex/latex/biblatex/cbx/numeric-verb.cbx
+ tex/latex/biblatex/cbx/numeric.cbx
+ tex/latex/biblatex/cbx/reading.cbx
+ tex/latex/biblatex/cbx/verbose-ibid.cbx
+ tex/latex/biblatex/cbx/verbose-inote.cbx
+ tex/latex/biblatex/cbx/verbose-note.cbx
+ tex/latex/biblatex/cbx/verbose-trad1.cbx
+ tex/latex/biblatex/cbx/verbose-trad2.cbx
+ tex/latex/biblatex/cbx/verbose-trad3.cbx
+ tex/latex/biblatex/cbx/verbose.cbx
+ tex/latex/biblatex/lbx/UKenglish.lbx
+ tex/latex/biblatex/lbx/USenglish.lbx
+ tex/latex/biblatex/lbx/american.lbx
+ tex/latex/biblatex/lbx/australian.lbx
+ tex/latex/biblatex/lbx/austrian.lbx
+ tex/latex/biblatex/lbx/basque.lbx
+ tex/latex/biblatex/lbx/brazil.lbx
+ tex/latex/biblatex/lbx/brazilian.lbx
+ tex/latex/biblatex/lbx/british.lbx
+ tex/latex/biblatex/lbx/bulgarian.lbx
+ tex/latex/biblatex/lbx/canadian.lbx
+ tex/latex/biblatex/lbx/catalan.lbx
+ tex/latex/biblatex/lbx/croatian.lbx
+ tex/latex/biblatex/lbx/czech.lbx
+ tex/latex/biblatex/lbx/danish.lbx
+ tex/latex/biblatex/lbx/dutch.lbx
+ tex/latex/biblatex/lbx/english.lbx
+ tex/latex/biblatex/lbx/estonian.lbx
+ tex/latex/biblatex/lbx/finnish.lbx
+ tex/latex/biblatex/lbx/french.lbx
+ tex/latex/biblatex/lbx/galician.lbx
+ tex/latex/biblatex/lbx/german.lbx
+ tex/latex/biblatex/lbx/greek.lbx
+ tex/latex/biblatex/lbx/hungarian.lbx
+ tex/latex/biblatex/lbx/icelandic.lbx
+ tex/latex/biblatex/lbx/italian.lbx
+ tex/latex/biblatex/lbx/latvian.lbx
+ tex/latex/biblatex/lbx/lithuanian.lbx
+ tex/latex/biblatex/lbx/magyar.lbx
+ tex/latex/biblatex/lbx/marathi.lbx
+ tex/latex/biblatex/lbx/naustrian.lbx
+ tex/latex/biblatex/lbx/newzealand.lbx
+ tex/latex/biblatex/lbx/ngerman.lbx
+ tex/latex/biblatex/lbx/norsk.lbx
+ tex/latex/biblatex/lbx/nswissgerman.lbx
+ tex/latex/biblatex/lbx/nynorsk.lbx
+ tex/latex/biblatex/lbx/polish.lbx
+ tex/latex/biblatex/lbx/portuges.lbx
+ tex/latex/biblatex/lbx/portuguese.lbx
+ tex/latex/biblatex/lbx/romanian.lbx
+ tex/latex/biblatex/lbx/russian.lbx
+ tex/latex/biblatex/lbx/serbian.lbx
+ tex/latex/biblatex/lbx/serbianc.lbx
+ tex/latex/biblatex/lbx/slovak.lbx
+ tex/latex/biblatex/lbx/slovene.lbx
+ tex/latex/biblatex/lbx/slovenian.lbx
+ tex/latex/biblatex/lbx/spanish.lbx
+ tex/latex/biblatex/lbx/swedish.lbx
+ tex/latex/biblatex/lbx/swissgerman.lbx
+ tex/latex/biblatex/lbx/turkish.lbx
+ tex/latex/biblatex/lbx/ukrainian.lbx
+catalogue-also translation-biblatex-de
+catalogue-contact-announce https://github.com/plk/biblatex/wiki
+catalogue-contact-bugs https://github.com/plk/biblatex/issues
+catalogue-contact-home https://github.com/plk/biblatex
+catalogue-contact-repository https://github.com/plk/biblatex.git
+catalogue-ctan /macros/latex/contrib/biblatex
+catalogue-license lppl1.3
+catalogue-topics biblatex biblio tagged-pdf-partially
+catalogue-version 3.22a
+
+name enumitem
+category Package
+revision 79618
+shortdesc Control layout of itemize, enumerate, description
+longdesc This package provides user control over the layout of the three
+longdesc basic list environments: enumerate, itemize and description. It
+longdesc supersedes both enumerate and mdwlist (providing
+longdesc well-structured replacements for all their functionality), and
+longdesc in addition provides functions to compute the layout of labels,
+longdesc and to 'clone' the standard environments, to create new
+longdesc environments with counters of their own.
+containersize 13816
+containerchecksum 6bbdd89a92a18e8b59c9a9f1a2da203da7c34a73fefd4974a5b4dcd8c9ab457c20e8555a2f6c01eb55ef722ae8ee4a943dbca41b905d83c8eceba2b87917baa0
+doccontainersize 169256
+doccontainerchecksum 3fa51446d8a8dd7860b96770faeb3197d59055683fe42263ddaaab9f0b0c1af43ec8e886d84cc49ec09655496b4b5af98b32496d45ab1266fee4911dacdcbbf1
+runfiles size=13
+ tex/latex/enumitem/enumitem.sty
+catalogue-contact-home https://www.texnia.com/enumitem.html
+catalogue-contact-repository https://github.com/jbezos/enumitem
+catalogue-ctan /macros/latex/contrib/enumitem
+catalogue-license mit
+catalogue-topics list tagged-pdf-partially
+catalogue-version 3.11
+
+name logreq
+category Package
+revision 53003
+shortdesc Support for automation of the LaTeX workflow
+longdesc The package helps to automate a typical LaTeX workflow that
+longdesc involves running LaTeX several times, running tools such as
+longdesc BibTeX or makeindex, and so on. It will log requests like
+longdesc "please rerun LaTeX" or "please run BibTeX on file X" to an
+longdesc external XML file which lists all open tasks in a
+longdesc machine-readable format. Compiler scripts and integrated LaTeX
+longdesc editing environments may parse this file to determine the next
+longdesc steps in the workflow in a way that is more efficient than
+longdesc parsing the main log file. In sum, the package will do two
+longdesc things: enable package authors to use LaTeX commands to issue
+longdesc requests, collect all requests from all packages and write them
+longdesc to an external XML file at the end of the document.
+depend etoolbox
+containersize 3212
+containerchecksum df61c0c6c0b8520f5ec38780d8eb69cfd5fccd21f5120e48eee71e02b004d3da4cc9cb9371a36766852e3ca09a3db86655f1a2639a49741f00134cff1246acd2
+doccontainersize 3792
+doccontainerchecksum fa9277da81dfb3aa235bd795780e8d3e629558fede90fa9234528b50a11507e59e65e49a0ca787af037186890392dfd45bf6de7bd859cec369626fb7d57b543f
+runfiles size=3
+ tex/latex/logreq/logreq.def
+ tex/latex/logreq/logreq.sty
+catalogue-ctan /macros/latex/contrib/logreq
+catalogue-license lppl1.3
+catalogue-topics compilation
+catalogue-version 1.0
+

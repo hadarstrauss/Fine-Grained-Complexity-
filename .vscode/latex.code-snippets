@@ -1,0 +1,14 @@
+{
+  "ref{}": {
+    "scope": "latex",
+    "prefix": ["\\ref", "ref"],
+    "body": "\\ref{${1}}$0",
+    "description": "Insert \\ref{} with the cursor inside the braces."
+  },
+  "color{}": {
+    "scope": "latex",
+    "prefix": ["\\color", "color"],
+    "body": "\\color{${1|teal,purple,olive|}}$0",
+    "description": "Insert \\color{} and choose teal, purple, or olive."
+  }
+}
