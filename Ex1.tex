@@ -57,9 +57,59 @@ as desired.
 
 
 
-
-
-
 % Algorithm $\mathcal{A}''$ will find w.p.\ at least $1/n^9$ the 
 
 % For every $G$, we let 
+
+\section{Problem 2}
+
+We reduce Convolution 3SUM to colored-3SUM (we saw in class that 3-SUM in time $T(n, U)$ implies colored-3SUM in time $T(O(n), O(U))$).
+
+% Given inputs $A,B,C$ to the Convolution 3SUM problem, run the algorithm for colored-3SUM on inputs $A',B',C'$, where $A'$ is obtained from $A$ by multiplying each value by $(n+1)$. 
+% % Output the algorithm's output.
+% % Return the output of the run.
+
+Given inputs $A,B,C$ to the Convolution 3SUM problem, run the algorithm for colored-3SUM on inputs $A',B',C'$ defined as follows.
+For every $i$, we set $A'[i] = 4n\cdot A[i] + i$, $B'[i] = 4n\cdot B[i] + i$ and $C'[i] = 4n\cdot C[i] - i$. 
+% For $C'$ we do the same only with a minus sign: 
+% We do the same for $B'$ and $C'$.
+
+Clearly, the time complexity is $T(O(n), O(n\cdot U))$. 
+To show correctness, consider first a yes-instance $A,B,C$ (of Convolution 3SUM). 
+Then there exists $i,j\in [n]$ such that $A[i] + B[j] + C[i + j] = 0$.
+It follows that $A'[i] + B'['j] + C'[i + j] = (4n\cdot A[i]+i + 4n\cdot B[j] +j + 4n\cdot C[i + j] - (i+j)) = 4n\cdot(A[i] + B[j] + C[i + j]) = 0$, implying that the triple $A',B',C'$ is a yes-instance of colored-3SUM.
+
+% Then there exists $a\in A, b\in B, c\in C$ such that $a+b+c=0$.
+% It follows that $(n+1)\cdot a+(n+1)\cdot b+(n+1)\cdot c=0$, implying $A',B',C'$ is a yes-instance as well (as desired).
+
+Now, consider any no-instance $A,B,C$. 
+% Then for every $i,j\in [n]$ it holds that $|A[i] + B[j] + C[i + j]| \geq 1$.
+% It follows that 
+Suppose towards a contradiction that there exists $i,j,k\in [n]$ such that $A'[i] + B'[j] + C'[k] = 0$.
+% % This means that $(n+1)\cdot(A[i] + B[j] + C[k] + (i+j-k)) = 0$.
+% This means that 
+% \begin{align}\label{eq:problem2}
+%     (n+1)\cdot(A[i] + B[j] + C[k]) + (i+j-k) = 0
+% \end{align}
+% If $k = j-1$ we get a contradiction to the fact that $A,B,C$ is a no-instance of Convolution 3SUM.
+% Otherwise, we get that $|i+j-k| > 0$. 
+% So for Eq.~\eqref{eq:problem2} to hold, it must be that $(n+1)\cdot(A[i] + B[j] + C[k]) = -(i+j-k) \neq 0$.
+% But whenever $|(n+1)\cdot(A[i] + B[j] + C[k])|$ is non-zero, it must be of size at least $(n+1)$. 
+% On the other hand, $|-(i+j-k)| \leq 3n$. 
+% So the inequality cannot hold.
+%
+This means that $4n\cdot(A[i] + B[j] + C[k]) + (i+j-k) = 0$, which implies
+% This implies that 
+\begin{align}\label{eq:problem2}
+    4n\cdot|A[i] + B[j] + C[k]| = |i+j-k|
+\end{align}
+% If $k = j-1$ we get a contradiction to the fact that $A,B,C$ is a no-instance of Convolution 3SUM.
+If $k = j+i$ we get that $A[i] + B[j] + C[j+i] = 0$, contradicting the fact the triple $A,B,C$ is a no-instance of Convolution 3SUM.
+% If $k = j+i$ then both sides equal 0, and we get a contradiction to the fact that the triple $A,B,C$ is a no-instance of Convolution 3SUM.
+Otherwise, we have that $|i+j-k| > 0$. 
+So for Eq.~\eqref{eq:problem2} to hold, it must be that $|A[i] + B[j] + C[k]| > 0$, which implies that $4n\cdot|A[i] + B[j] + C[k]| \geq 4n$.
+But $|i+j-k| \leq 3n$, contradicting Eq.~\eqref{eq:problem2}.
+
+% If $A[i] + B[j] + C[k] = 0$ then we 
+
+% $a\in A', b\in B', c\in C'$ such that 
