@@ -113,3 +113,47 @@ But $|i+j-k| \leq 3n$, contradicting Eq.~\eqref{eq:problem2}.
 % If $A[i] + B[j] + C[k] = 0$ then we 
 
 % $a\in A', b\in B', c\in C'$ such that 
+
+
+\section{Problem 3}
+
+First, using the color-coding technique we saw in class, we can reduce the triangle-detection problem to the colored version in which the graph is tripartite, while preserving the time complexity up to constant factors. 
+% \todo{check this}.
+
+Now, given a tripartite graph $G$ with parts $X, Y, Z$, we construct an instance $A,B,C$ for the colored 3SUM problem as follows.
+We assume the nodes in $X$ are represented as integers from $1$ to $n$, and so do the nodes in $Y$ and $Z$ (i.e., $X=Y=Z=[n]$).
+Now, for each edge $(x, y)$ in the graph, where $x\in X$ and $y\in Y$, we add the value $x-n\cdot y$ to $A$. 
+For each edge $(y, z) \in Y\times Z$ we add $n\cdot y-n^2\cdot z$ to $B$, and for each edge $(z, x) \in Z\times X$ we add $n^2\cdot z-x$ to $C$. 
+% Similarly, we add $y-z$ to $B$ for each edge $(y, z) \in Y\times Z$ and $z-x$ to $C$ for each edge $(x, x) \in Z\times X$.
+% Lastly, we multiply all the values in $A$ by $n^2$.
+We run the algorithm for 3SUM on the constructed lists $(A, B, C)$, and outputs its decision.
+
+% Clearly, the running time of the constructed algorithm is $O(\log n) \cdot T(O(m), O(n^3))$. \todo{Why the log n factor??}
+
+Clearly, the running time of the constructed algorithm is $T(O(m), O(n^3))$.
+Furthermore, if $G$ contains a triangle $(x,y,z)\in X\cdot Y\cdot Z$, then the corresponding values $x-n\cdot y\in A$, $n\cdot y-n^2\cdot z \in B$, $n^2\cdot z-x\in C$ sum to $0$.
+For the other direction, consider any triple $x-n\cdot y'\in A$, $n\cdot y-n^2\cdot z' \in B$, $n^2\cdot z-x'\in C$ that sum to $0$.
+Rearranging, we have: 
+\begin{align}\label{eq:problem3}
+    (x-x') + n\cdot (y-y') + n^2\cdot (z-z') = 0
+\end{align}
+% $$
+%     (x-x') + (2n)\cdot (y-y') + (2n)^2\cdot (z-z') = 0
+% $$
+We claim that it must follow that $x=x'$, $y=y'$ and $z=z'$, implying that $G$ contains a triangle.
+Indeed, applying module $n$ on Eq.~\eqref{eq:problem3}, we get that $x-x' = 0$, where we rely on the fact that $|x-x'| < n$.
+Applying module $n^2$ we get $\left( (x-x') + n\cdot (y-y') \right) (\text{mod } n^2) = 0$. 
+Since $(x-x') = 0$ and $n\cdot (y-y') < n^2$, it follows that $y-y' = 0$. 
+Applying module $n^3$ and proceeding analogously we get $z-z' = 0$, as desired.
+
+% It is left to verify that if there are three values in $(A,B,C)$, respectively, that sum to $0$ then $G$ contains a triangle.
+% Consider an
+
+
+% $(A,B,C)$ contain a triple that sums to $0$: 
+
+% we have $a = x-(2n)\cdot y\in A$, $b = $
+
+% between $A$ and $B$, we add 
+% The list $A$ will consis
+% For each edge $G$ we construct 
