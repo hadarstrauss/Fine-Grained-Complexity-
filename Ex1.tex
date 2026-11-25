@@ -10,14 +10,14 @@ The time complexity of $\mathcal{A}'$  is clearly $O(T(n) \cdot \log n)$. We nex
 
 % Let $G$ be an arbitrary input graph and let $\chi(G)$ equal 1 of $G$ is a yes-instance (i.e., $G$ contains a $k$-clique), and 0 otherwise.
 
-Let $G$ be an arbitrary input graph, and let $p(G)$ equal $2/3$ if $G$ is a yes-instance (i.e., $G$ contains a $k$-clique), and $1/3$ otherwise. That is, $p(G)$ is the probability that $\mathcal{A}$ output $1$ given $G$.
+Let $G$ be an arbitrary input graph, and let $p(G)$ equal $2/3$ if $G$ is a yes-instance (i.e., $G$ contains a $k$-clique), and $1/3$ otherwise. That is, $p(G)$ is the probability that $\mathcal{A}$ outputs $1$ given $G$.
 For every $i \in [t]$ let $x_i$ be the output of $\mathcal{A}$ on $G$ in the $i\th$ invocation. 
 Note that $\E[x_i] = p(G)$ for every $i$.  
 % Note that for every $i$, it holds that $\E[x_i] = p(G)$.  
 % Recall that $A$ errs on $G$ iff $|\frac{1}{t}\cdot x_i - \chi(G)| > 1/3$, which is equivalent to $|\frac{1}{t}\cdot x_i - \chi(G)| > 1/3$.
-Additionally, note that $\mathcal{A}'$ errs on $G$ iff $\left| \frac{1}{t}\cdot \sum_{i\in[t]} x_i - p(G) \right| > 1/3$.
-By the Chernoff bound, it holds that $t = O(\epsilon^{-2}\cdot \log(1/\delta))$ repetitions suffices to get that $\Pr\left[ \left|\frac{1}{t}\cdot\sum_{i\in[t]} x_i - p(G)\right| > \epsilon \right] \leq \delta$.
-Thus, using $\epsilon = 1/3$ and $\delta = 1/n^{10}$, we get that $t = O(\log n)$ repetitions suffices to get that $\mathcal{A}'$ errs on $G$ with probability less than $1/n^{10}$.
+Additionally, note that if $\mathcal{A}'$ errs on $G$ then it must hold that $\left| \frac{1}{t}\cdot \sum_{i\in[t]} x_i - p(G) \right| > 1/6$.
+By the Chernoff bound, it holds that $t = O(\epsilon^{-2}\cdot \log(1/\delta))$ repetitions suffice to get that $\Pr\left[ \left|\frac{1}{t}\cdot\sum_{i\in[t]} x_i - p(G)\right| > \epsilon \right] \leq \delta$.
+Thus, using $\epsilon = 1/6$ and $\delta = 1/n^{10}$, we get that $t = O(\log n)$ repetitions suffices to get that $\mathcal{A}'$ errs on $G$ with probability less than $1/n^{10}$.
 
 % By the checkoff bound, 
 
@@ -25,15 +25,20 @@ Thus, using $\epsilon = 1/3$ and $\delta = 1/n^{10}$, we get that $t = O(\log n)
 
 \paragraph{(b)}
 
-We will show an algorithm $\mathcal{A}''$ such that, if the input $G$ is a yes-instance, then $\mathcal{A}''$ finds a $k$-clique w.p.\ $1/n^9$.
-$\mathcal{A}''$ outputs "yes" iff it found a $k$-clique.
+We will show an algorithm $\mathcal{A}''$ such that, if the input $G$ is a yes-instance, then $\mathcal{A}''$ finds a $k$-clique w.p.\ $1-1/n^9$.
+$\mathcal{A}''$ outputs ``yes'' iff it found a $k$-clique.
 
-$\mathcal{A}''$ partitions the set on nodes $V$ into $k+1$ arbitrary sets of length $n/(k+1)$, denoted $V_1,\ldots V_{k+1}$.
-For each $i\in [k+1]$, it runs algorithm $\mathcal{A}'$ on $G$ restricted to $V \setminus V_i$, denoted $G(V \setminus V_i)$.
-It then recourses on the first $G(V \setminus V_i)$ that returned yes, or returns "fail" if no call returned yes.
+% The algorithm 
+$\mathcal{A}''$ partitions the set of nodes $V$ into $k+1$ arbitrary sets of size $n/(k+1)$, denoted $V_1,\ldots V_{k+1}$.
+For each $i\in [k+1]$, it runs algorithm $\mathcal{A}'$ on $G$ restricted to $V \setminus V_i$, denoted $G(V \setminus V_i)$. 
+It then recurses on the first $G(V \setminus V_i)$ that returned yes, or returns "fail" if no call returned yes.
 At the base case, if the number of nodes in the graph is $k$, $\mathcal{A}''$ directly checks if the graph is a clique (in $O(k^2) = O(1)$ time), and returns yes iff it is indeed a clique.
 
-\textit{Time complexity.} In each recursive call we make a call to $\mathcal{A}''$ which takes $O(T(n) \cdot \log n)$ time.
+*We assume that algorithm $\mathcal{A}'$ makes $O(\log n)$ repetitions where $n$ is the \emph{original length} of the input.
+E.g., $\mathcal{A}'$ can get an additional parameter $m$ such that it will use $O(\log m)$ repetitions and the resulting error probability will be $O(1/m^{10})$. 
+We then set $m$ to the original input length $n$ throughout all calls. 
+
+\textit{Time complexity.} In each recursive call we make a call to $\mathcal{A}'$ which takes $O(T(n) \cdot \log n)$ time.
 Since after $i$ recursion rounds the input shrinks to $(\frac{k}{k+1})^i\cdot n$  
 % Since the input shrinks from $n$ to $(k/(k+1))\cdot n$ at each recursion round, 
 there are at most $O(\log n)$ recursion rounds.
@@ -41,17 +46,23 @@ Thus, the total time complexity is at most $O(T(n) \cdot \log^2 n)$.
 
 \textit{Correctness.}
 Consider any yes-instance $G$. 
-Note that if all the call to $\mathcal{A}''$ succeed, then $\mathcal{A}''$ will find a $k$-clique. 
-Thus, we only need to show that the probability that one of the calls to $\mathcal{A}''$ fails is at most $1/n^9$.
-In the $i\th$ recursion round, we make $k+1$ calls to $\mathcal{A}''$ that each fails w.p.\ at most $\frac{1}{((\frac{k}{k+1})^i\cdot n)^{10}}  $.
-By the union bound, the probability that one of the calls fail in one of the rounds is at most
-$$
-\sum_{i} \frac{k+1}{((\frac{k}{k+1})^i\cdot n)^{10}}  
-= \frac{k+1}{n^{10}} \cdot \sum_{i} \frac{1}{(\frac{k}{k+1})^{10\cdot i}}
-= \frac{k+1}{n^{10}} \cdot O(1)
-\leq \frac{1}{n^9}
-$$ 
-as desired.
+Note that if all the calls to $\mathcal{A}'$ succeed, then $\mathcal{A}''$ will find a $k$-clique. 
+Thus, we only need to show that the probability that one of the calls to $\mathcal{A}'$ fails is at most $1/n^9$.
+% Since we have $O(\log n)$ recursion rounds, 
+In each of the $O(\log n)$ recursion rounds, we make $k+1$ calls to $\mathcal{A}'$ that each fails w.p.\ at most $\frac{1}{n^{10}}$.
+By the union bound, the probability that some call to $\mathcal{A}'$ fails is at most $O(\log n) \cdot (k+1) \cdot (1/n^{10}) = o(1/n^{9})$, as desired.
+% $$
+% In the $i\th$ recursion round, we make $k+1$ calls to $\mathcal{A}''$ that each fails w.p.\ at most $\frac{1}{((\frac{k}{k+1})^i\cdot n)^{10}}$.
+% By the union bound, the probability that one of the calls fails in one of the rounds is at most
+% $$
+% \sum_{i} \frac{k+1}{((\frac{k}{k+1})^i\cdot n)^{10}}  
+% = \frac{k+1}{n^{10}} \cdot \sum_{i} \frac{1}{(\frac{k}{k+1})^{10\cdot i}}
+% = \frac{k+1}{n^{10}} \cdot O(1)
+% \leq \frac{1}{n^9}
+% $$ 
+% as desired.
+
+% \todo{not true.. the sum is not decaying.. and does not sum to $O(1)$... need to do more reps}
 
 % If $G$ is a no-instance, then w.p. at least $\frac{k+1}{n^{10}} \leq \frac{1}{n^9}$ all the calls to $\mathcal{A}''$ 
 
@@ -76,8 +87,8 @@ For every $i$, we set $A'[i] = 4n\cdot A[i] + i$, $B'[i] = 4n\cdot B[i] + i$ and
 
 Clearly, the time complexity is $T(O(n), O(n\cdot U))$. 
 To show correctness, consider first a yes-instance $A,B,C$ (of Convolution 3SUM). 
-Then there exists $i,j\in [n]$ such that $A[i] + B[j] + C[i + j] = 0$.
-It follows that $A'[i] + B'['j] + C'[i + j] = (4n\cdot A[i]+i + 4n\cdot B[j] +j + 4n\cdot C[i + j] - (i+j)) = 4n\cdot(A[i] + B[j] + C[i + j]) = 0$, implying that the triple $A',B',C'$ is a yes-instance of colored-3SUM.
+Then there exist $i,j\in [n]$ such that $A[i] + B[j] + C[i + j] = 0$.
+It follows that $A'[i] + B'[j] + C'[i + j] = (4n\cdot A[i]+i + 4n\cdot B[j] +j + 4n\cdot C[i + j] - (i+j)) = 4n\cdot(A[i] + B[j] + C[i + j]) = 0$, implying that the triple $A',B',C'$ is a yes-instance of colored-3SUM.
 
 % Then there exists $a\in A, b\in B, c\in C$ such that $a+b+c=0$.
 % It follows that $(n+1)\cdot a+(n+1)\cdot b+(n+1)\cdot c=0$, implying $A',B',C'$ is a yes-instance as well (as desired).
@@ -85,7 +96,7 @@ It follows that $A'[i] + B'['j] + C'[i + j] = (4n\cdot A[i]+i + 4n\cdot B[j] +j 
 Now, consider any no-instance $A,B,C$. 
 % Then for every $i,j\in [n]$ it holds that $|A[i] + B[j] + C[i + j]| \geq 1$.
 % It follows that 
-Suppose towards a contradiction that there exists $i,j,k\in [n]$ such that $A'[i] + B'[j] + C'[k] = 0$.
+Suppose towards a contradiction that there exist $i,j,k\in [n]$ such that $A'[i] + B'[j] + C'[k] = 0$.
 % % This means that $(n+1)\cdot(A[i] + B[j] + C[k] + (i+j-k)) = 0$.
 % This means that 
 % \begin{align}\label{eq:problem2}
@@ -104,7 +115,7 @@ This means that $4n\cdot(A[i] + B[j] + C[k]) + (i+j-k) = 0$, which implies
     4n\cdot|A[i] + B[j] + C[k]| = |i+j-k|
 \end{align}
 % If $k = j-1$ we get a contradiction to the fact that $A,B,C$ is a no-instance of Convolution 3SUM.
-If $k = j+i$ we get that $A[i] + B[j] + C[j+i] = 0$, contradicting the fact the triple $A,B,C$ is a no-instance of Convolution 3SUM.
+If $k = j+i$ we get that $A[i] + B[j] + C[j+i] = 0$, contradicting the fact that the triple $A,B,C$ is a no-instance of Convolution 3SUM.
 % If $k = j+i$ then both sides equal 0, and we get a contradiction to the fact that the triple $A,B,C$ is a no-instance of Convolution 3SUM.
 Otherwise, we have that $|i+j-k| > 0$. 
 So for Eq.~\eqref{eq:problem2} to hold, it must be that $|A[i] + B[j] + C[k]| > 0$, which implies that $4n\cdot|A[i] + B[j] + C[k]| \geq 4n$.
@@ -121,18 +132,18 @@ First, using the color-coding technique we saw in class, we can reduce the trian
 % \todo{check this}.
 
 Now, given a tripartite graph $G$ with parts $X, Y, Z$, we construct an instance $A,B,C$ for the colored 3SUM problem as follows.
-We assume the nodes in $X$ are represented as integers from $1$ to $n$, and so do the nodes in $Y$ and $Z$ (i.e., $X=Y=Z=[n]$).
+We assume the nodes in $X$ are represented as integers from $1$ to $n$, and the same holds for the nodes in $Y$ and $Z$ (i.e., $X=Y=Z=[n]$).
 Now, for each edge $(x, y)$ in the graph, where $x\in X$ and $y\in Y$, we add the value $x-n\cdot y$ to $A$. 
 For each edge $(y, z) \in Y\times Z$ we add $n\cdot y-n^2\cdot z$ to $B$, and for each edge $(z, x) \in Z\times X$ we add $n^2\cdot z-x$ to $C$. 
 % Similarly, we add $y-z$ to $B$ for each edge $(y, z) \in Y\times Z$ and $z-x$ to $C$ for each edge $(x, x) \in Z\times X$.
 % Lastly, we multiply all the values in $A$ by $n^2$.
-We run the algorithm for 3SUM on the constructed lists $(A, B, C)$, and outputs its decision.
+We run the algorithm for 3SUM on the constructed lists $(A, B, C)$, and output its decision.
 
 % Clearly, the running time of the constructed algorithm is $O(\log n) \cdot T(O(m), O(n^3))$. \todo{Why the log n factor??}
 
 Clearly, the running time of the constructed algorithm is $T(O(m), O(n^3))$.
-Furthermore, if $G$ contains a triangle $(x,y,z)\in X\cdot Y\cdot Z$, then the corresponding values $x-n\cdot y\in A$, $n\cdot y-n^2\cdot z \in B$, $n^2\cdot z-x\in C$ sum to $0$.
-For the other direction, consider any triple $x-n\cdot y'\in A$, $n\cdot y-n^2\cdot z' \in B$, $n^2\cdot z-x'\in C$ that sum to $0$.
+Furthermore, if $G$ contains a triangle $(x,y,z)\in X\times Y\times Z$, then the corresponding values $x-n\cdot y\in A$, $n\cdot y-n^2\cdot z \in B$, $n^2\cdot z-x\in C$ sum to $0$.
+For the other direction, consider any triple $x-n\cdot y'\in A$, $n\cdot y-n^2\cdot z' \in B$, $n^2\cdot z-x'\in C$ that sums to $0$.
 Rearranging, we have: 
 \begin{align}\label{eq:problem3}
     (x-x') + n\cdot (y-y') + n^2\cdot (z-z') = 0
@@ -157,3 +168,70 @@ Applying module $n^3$ and proceeding analogously we get $z-z' = 0$, as desired.
 % between $A$ and $B$, we add 
 % The list $A$ will consis
 % For each edge $G$ we construct 
+
+\section{Problem 4}
+
+\paragraph{The reduction.} 
+We reduce colored 3SUM' to Sumset Size.
+% Given sets $(A,B,C)$, we compute $| \left((A+5 U) \cup C\right) +  \left((B+5 U)\cap \{10 U\}\right) |$, as well as $|A+B|$ and $|C+B|$.
+% We answer ``yes'' iff: 
+% $$
+%     | \left((A+5 U) \cup C\right) +  \left((B+5 U)\cap \{10 U\}\right) | - \left( |A+B| + |C+B| + |A| + |C| \right) > 0
+% $$
+Given sets $(A,B,C)$, define 
+$$
+    S \eqdef \left( (A+5U) \cup C \right) +  \left( (B+5U) \cup \{10U\} \right)
+$$ 
+We compute $|S|$, $|A+B|$ and $|C+B|$ and answer ``yes'' iff: 
+% $$
+%     | S | - \left( |A+B| + |C+B| + |A| + |C| \right) > 0
+% $$
+\begin{align}\label{eq:problem4}
+    \left( |A+B| + |C+B| + |A| + |C| \right) - |S| > 0
+\end{align}
+
+\paragraph{Time complexity.} 
+We call the Sumset-Size algorithm three times and do additional linear-times operations. 
+Therefore, if the time complexity of the Sumset-Size algorithm is $O(n^{2-\epsilon})$, so is the time complexity of our algorithm.
+
+% We call the Sumset-Size algorithm three times, and 
+
+% Since we only call the Sumset-Size algorithm three times and do extra linear times operations, if Sumset-Size is
+
+\paragraph{Correctness.} 
+Note that $(A, B, C)$ is a yes-instance of colored 3SUM' iff $|(A+B) \cap C| > 0$. 
+Thus, we show that $|(A+B) \cap C| > 0$ iff Eq.~\eqref{eq:problem4} holds.
+% Let us denote $S \eqdef \left( (A+5U) \cup C \right) +  \left( (B+5U) \cap \{10U\} \right)$.
+% Note that: 
+First, note that: 
+\begin{align*}
+    S 
+    &= ((A+5U) + 10U) \cup  (C+(B+5U)) \cup  ((A+5U)+(B+5U)) \cup (C+10U) \\
+    &= (A+15U) \cup  (C+B+5U) \cup  (A+B+10U) \cup (C+10U)
+\end{align*}
+Now, notice that the sets $A+15U$, $C+B+5U$ and $(A+B+10U) \cup (C+10U)$ are disjoint, because they are contained in the ranges $[14U, 16U]$, $[3U, 7U]$ and $[8U, 12U]$, respectively.
+Thus, we have 
+\begin{align*}
+    |S| 
+    &= |A+15U| + |C+B+5U| + |(A+B+10U) \cup (C+10U)| \\
+    &= |A+15U| + |C+B+5U| + |A+B+10U| + |C+10U| -  |(A+B+10U) \cap (C+10U)| \\
+    &= |A| + |C+B| + |A+B| + |C| -  |(A+B) \cap C|
+\end{align*}
+Rearranging, we get
+\begin{align*}
+    |(A+B) \cap C| = \left( |A+B| + |C+B| + |A| + |C| \right) - |S|
+\end{align*}
+Thus $|(A+B) \cap C| > 0$ iff Eq.~\eqref{eq:problem4} holds, as desired.
+% Correctness follows since $(A, B, C)$ is a 
+
+% $|(A+B) \cap C| > 0$ 
+
+
+% (which is equivalent to the triple $(A, B, C)$)
+% We use $|(A+B+10U) \cup (C+10U)| = |A+B+10U| + |C+10U| -  |(A+B+10U) \cap (C+10U)|$, and get:
+% \begin{align*}
+%     S 
+%     &= |A+15U| + |C+B+5U| + |A+B+10U| + |C+10U| -  |(A+B+10U) \cap (C+10U)|
+% \end{align*}
+
+% $A+15U \subseteq [14U, 16U]$, $C+B+5U \subseteq [3U, 7U]$ and $(A+B+10U) \cup (C+10U) \in [8U, 12U]$
